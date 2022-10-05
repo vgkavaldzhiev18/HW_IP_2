@@ -1,7 +1,6 @@
 import java.util.Scanner;
 public class Calculator {
-    //System.out.println("Wrong Input. Please try again!\n");
-    //choice=scan.nextInt();
+
     public static void main(String[] args) {
 
         Scanner scan=new Scanner(System.in);
@@ -10,10 +9,12 @@ public class Calculator {
                 "1.Integer\n" +
                 "2.Double\n" +
                 "3.Float\n" +
-                "4.Byte\n");
+                "4.Byte\n" +
+                "5.Short\n" +
+                "6.Long\n");
 
         int choice=scan.nextInt();
-        while(choice>0 || choice<4) {
+        while(choice>0 || choice<6) {
 
             //Integer division and multiplication
             if(choice==1)
@@ -146,6 +147,70 @@ public class Calculator {
                 byteCalculator.byteCalcMul();
             }
 
+            else if(choice==5)
+            {
+
+                System.out.println("You chose Short!");
+
+                shortCalc shortCalculator = new shortCalc();
+
+                System.out.println("Please enter a positive value for the first number");
+                short value1=scan.nextShort();
+                while(value1<0) {
+                    System.out.println("Wrong Input! Please try again");
+                    value1=scan.nextShort();
+                }
+                shortCalculator.setValue1(value1);
+
+                System.out.println("Please enter a positive value for the second number");
+                short value2=scan.nextShort();
+                while(value2==0) {
+                    System.out.println("Wrong Input! You can't divide by 0. Try again!");
+                    value2=scan.nextShort();
+                }
+                while(value2<0) {
+                    System.out.println("Wrong Input! Please try again");
+                    value2=scan.nextShort();
+                }
+                shortCalculator.setValue2(value2);
+
+                shortCalculator.shortCalcDiv();
+
+                shortCalculator.shortCalcMul();
+            }
+
+            else if(choice==6)
+            {
+
+                System.out.println("You chose Long!");
+
+                longCalc longCalculator = new longCalc();
+
+                System.out.println("Please enter a positive value for the first number");
+                long value1=scan.nextLong();
+                while(value1<0) {
+                    System.out.println("Wrong Input! Please try again");
+                    value1=scan.nextLong();
+                }
+                longCalculator.setValue1(value1);
+
+                System.out.println("Please enter a positive value for the second number");
+                long value2=scan.nextLong();
+                while(value2==0) {
+                    System.out.println("Wrong Input! You can't divide by 0. Try again!");
+                    value2=scan.nextLong();
+                }
+                while(value2<0) {
+                    System.out.println("Wrong Input! Please try again");
+                    value2=scan.nextLong();
+                }
+                longCalculator.setValue2(value2);
+
+                longCalculator.longCalcDiv();
+
+                longCalculator.longCalcMul();
+            }
+
             System.out.println("\nDo you want to continue?\n" +
                     "1.Yes\n" +
                     "2.No");
@@ -165,7 +230,7 @@ public class Calculator {
                         "3.Float\n" +
                         "4.Byte\n");
                 choice=scan.nextInt();
-                while(choice<0 || choice>4)
+                while(choice<0 || choice>6)
                 {
                     System.out.println("Wrong Input! Please try again!");
                     choice = scan.nextInt();
