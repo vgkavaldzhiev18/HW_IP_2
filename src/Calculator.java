@@ -228,7 +228,9 @@ public class Calculator {
                         "1.Integer\n" +
                         "2.Double\n" +
                         "3.Float\n" +
-                        "4.Byte\n");
+                        "4.Byte\n" +
+                        "5.Short\n" +
+                        "6.Long\n");
                 choice=scan.nextInt();
                 while(choice<0 || choice>6)
                 {
